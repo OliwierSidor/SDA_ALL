@@ -10,36 +10,44 @@ public class Main {
         String imie = scanner.nextLine();
         System.out.println("Cześć " + imie + " Podaj tekst piosenki: ");
         String tekst = scanner.nextLine();
-        IInstrument instrument = null;
+
         Muzykant muzykant = new Muzykant(imie);
         String coRobimy;
         do {
-            System.out.println("Czy czesz zaśpiewać czy zagrać (zaspiewaj/zagraj): ");
+            System.out.println("Czy chcesz zaśpiewać czy wybrać instrument? (zaśpiewaj/instrument): ");
             coRobimy = scanner.nextLine().toUpperCase();
-            if (coRobimy.equals("ZAGRAJ")) {
-                System.out.println("Na jakim instrumencie chcesz zagrać? (beben, flet, gitara, talerze, glos)");
+            if (coRobimy.equals("INSTRUMENT")) {
+                System.out.println("Na jakim instrumencie chcesz zagrać? (beben, flet, gitara, talerze, glos, trabka)");
                 String wybranyInstrument = scanner.nextLine();
-                if (wybranyInstrument.equals("beben")) {
-                    Beben beben = new Beben();
-                    beben.graj(tekst);
-                } else if (wybranyInstrument.equals("flet")) {
-                    Flet flet = new Flet();
-                    flet.graj(tekst);
-                } else if (wybranyInstrument.equals("gitara")) {
-                    Gitara gitara = new Gitara();
-                    gitara.graj(tekst);
-                } else if (wybranyInstrument.equals("glos")) {
-                    Glos glos = new Glos();
-                    glos.graj(tekst);
-                } else if (wybranyInstrument.equals("talerze")) {
-                    Talerze talerze = new Talerze();
-                    talerze.graj(tekst);
-                }
 
+                if (wybranyInstrument.equals("beben")) {
+                    muzykant.setInstrument(new Beben());
+
+                } else if (wybranyInstrument.equals("flet")) {
+                    muzykant.setInstrument(new Flet());
+
+                } else if (wybranyInstrument.equals("gitara")) {
+                    muzykant.setInstrument(new Gitara());
+
+                } else if (wybranyInstrument.equals("glos")) {
+                    muzykant.setInstrument(new Glos());
+
+                } else if (wybranyInstrument.equals("talerze")) {
+                    muzykant.setInstrument(new Talerze());
+
+                } else if (wybranyInstrument.equals("trabka")) {
+                    muzykant.setInstrument(new Trabka());
+                }
+                System.out.println("Wybieram  " + wybranyInstrument);
+
+            } else if (coRobimy.equals("ZASPIEWAJ")) {
+                muzykant.zagraj(tekst);
+            } else if (coRobimy.equals("KONIEC")) {
+                System.out.println("Do zobaczenia!");
             } else {
-                System.out.println("nie mam instrumentu do grania :(");
+                System.out.println("Nie rozumiem - podaj 'zaspiewaj' albo 'instrument'");
             }
-        } while (!coRobimy.equals("koniec"));
+        } while (!coRobimy.equals("KONIEC"));
 
     }
 }

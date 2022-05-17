@@ -14,10 +14,10 @@ public class Main {
         char[] tablica = tekst.toCharArray();
         int liczbaKropek = 0;
         int liczbaPrzecinkow = 0;
-        for (char c : tablica) {
-            if (c == '.') {
+        for (char znak : tablica) {
+            if (znak == '.') {
                 liczbaKropek++;
-            } else if (c == ',') {
+            } else if (znak == ',') {
                 liczbaPrzecinkow++;
             }
         }

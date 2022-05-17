@@ -22,7 +22,7 @@ public class MainZadanie2b {
         int iloscZdanZJednymPrzecinkiem = 0;
         int iloscZdanZDwomaPrzecinkami = 0;
         int iloscPonadDwaPrzecinki = 0;
-        int[] licznikiPrzecinkow = new int[4];
+//        int[] licznikiPrzecinkow = new int[4];
         do {
             tekst = scanner.nextLine();
             char[] tablica = tekst.toCharArray();
@@ -46,9 +46,10 @@ public class MainZadanie2b {
             System.out.println("Do tej pory znaleziono " + iloscZdan + " zdań.");
             System.out.println("Wpisz kolejne zdanie lub zakończ program wpisując 'koniec'.");
         } while (!tekst.equals("koniec"));
+
         System.out.println("W sumie w tekscie są " + iloscZdan + " zdania.");
         System.out.println("W tekście występuje " + iloscZdanBezPrzecinkow + " zdań prostych.");
-        System.out.println("W tekscie występuje " + (iloscZdanZDwomaPrzecinkami + iloscZdanZJednymPrzecinkiem + iloscPonadDwaPrzecinki) + " zdań złożonych.");
+        System.out.println("W tekście występuje " + (iloscZdanZDwomaPrzecinkami + iloscZdanZJednymPrzecinkiem + iloscPonadDwaPrzecinki) + " zdań złożonych.");
         System.out.println("W tekście występuje " + iloscZdanZJednymPrzecinkiem + " zdań z jednym przecinkiem.");
         System.out.println("W tekście występuje " + iloscZdanZDwomaPrzecinkami + " zdań z dwoma przecinkami.");
         System.out.println("W tekście występuje " + iloscPonadDwaPrzecinki + " zdania z więcej niż dwoma przecinkami.");

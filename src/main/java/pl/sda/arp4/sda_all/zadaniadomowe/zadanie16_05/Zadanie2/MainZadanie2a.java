@@ -21,8 +21,7 @@ public class MainZadanie2a {
                 }
             }
             System.out.println("Do tej pory znaleziono " + iloscZdan + " zdań");
-        } while (!tekst.equals("koniec"));
-
-        System.out.println("W sumie w tekscie są" + iloscZdan + " zdania");
+        } while (!tekst.equalsIgnoreCase("koniec"));
+        System.out.println("W sumie w tekscie są " + iloscZdan + " zdania");
     }
 }
