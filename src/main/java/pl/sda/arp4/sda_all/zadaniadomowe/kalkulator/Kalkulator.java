@@ -1,8 +1,17 @@
 package pl.sda.arp4.sda_all.zadaniadomowe.kalkulator;
 
 public class Kalkulator {
+    public double getWynik() {
+        return wynik;
+    }
 
-    public double zwrocOstatniWynik(double wynik){
+    public void setWynik(double wynik) {
+        this.wynik = wynik;
+    }
+
+    private double wynik;
+
+    public double zwrocOstatniWynik(double wynik) {
         return wynik;
     }
 

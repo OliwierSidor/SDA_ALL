@@ -6,7 +6,6 @@ public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         Kalkulator kalkulator = new Kalkulator();
-        double wynik = 0;
         boolean jestWynik = true;
         String dzialanie;
 
@@ -14,29 +13,25 @@ public class Main {
             System.out.println("Wybież działanie matematyczne (dodaj/odejmij/pomnoz/podziel/zwroc):");
             dzialanie = scanner.next();
             if ("zwroc".equalsIgnoreCase(dzialanie)) {
-                System.out.println(kalkulator.zwrocOstatniWynik(wynik));
+                System.out.println("Poprzedni wynik to: " + kalkulator.zwrocOstatniWynik(kalkulator.getWynik()));
                 continue;
             }
 
             System.out.println("Podaj pierwszą liczbę: ");
             double liczbaPierwsza = scanner.nextInt();
 
-            System.out.println("Podaj pierwszą drugą: ");
+            System.out.println("Podaj drugą drugą: ");
             int liczbaDruga = scanner.nextInt();
 
             if ("dodaj".equals(dzialanie)) {
-                wynik = kalkulator.dodaj(liczbaPierwsza, liczbaDruga);
-//                System.out.println("Wynik = " + wynik);
+                kalkulator.setWynik(kalkulator.dodaj(liczbaPierwsza, liczbaDruga));
             } else if ("odejmij".equals(dzialanie)) {
-                wynik = kalkulator.odejmij(liczbaPierwsza, liczbaDruga);
-//                System.out.println("Wynik = " + wynik);
+                kalkulator.setWynik(kalkulator.odejmij(liczbaPierwsza, liczbaDruga));
             } else if ("pomnoz".equals(dzialanie)) {
-                wynik = kalkulator.pomnoz(liczbaPierwsza, liczbaDruga);
-//                System.out.println("Wynik = " + wynik);
+                kalkulator.setWynik(kalkulator.pomnoz(liczbaPierwsza, liczbaDruga));
             } else if ("podziel".equals(dzialanie)) {
                 try {
-                    wynik = kalkulator.podziel(liczbaPierwsza, liczbaDruga);
-//                    System.out.println("Wynik = " + wynik);
+                    kalkulator.setWynik(kalkulator.podziel(liczbaPierwsza, liczbaDruga));
                 } catch (ArithmeticException nazwaZmiennejWyjatku) {
                     System.out.println("Nie można dzielić przez zero!");
                     jestWynik = false;
@@ -46,7 +41,7 @@ public class Main {
                 jestWynik = false;
             }
             if (jestWynik) {
-                System.out.println("Wynik = " + wynik);
+                System.out.println("Wynik = " + kalkulator.getWynik());
             }
         } while (!dzialanie.equalsIgnoreCase("koniec"));
     }
